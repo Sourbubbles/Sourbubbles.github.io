@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Lottery Game!</title>
+			<link rel="stylesheet" href="mystyle.css">
+		</head>
+		<body>
+			<div>
+				
+				<p>Lottery! <br>Welcome to the lottery game! Here are the rules:<br>Enter 3 numbers between 1-10 and see if you can guess it right!<br>First prize for 3 correct guesses,<br>Second prize for 2,<br> and Third prize for 1!</p>
+			<label>Enter 3 values</label>
+			<input type="number" id="var1" name="var1" min"1" max="10"/>
+			<input type="number" id="var2" name="var2" min"1" max="10"/>
+			<input type="number" id="var3" name="var3" min"1" max="10"/>
+			<br><br>
+			<input id="btn" type="button" value="Submit"/>
+			<hr>
+			Result:<p class="summary"></ul></p>
+			</div>
+			<script>
+				var summary = document.querySelector('.summary');
+				
+				document.getElementById('btn').onclick = function() {
+					var result=' ';
+					var val1 = parseInt(document.getElementById('var1').value);
+					var val2 = parseInt(document.getElementById('var2').value);
+					var val3 = parseInt(document.getElementById('var3').value);
+					var rand1 = getRandomIntInclusive(1, 10);
+					var rand2 = getRandomIntInclusive(1, 10);
+					var rand3 = getRandomIntInclusive(1, 10);
+					
+					if(val1 > 10 || val1 < 1 || val2 > 10 || val2 < 1  || val3 > 10 || val3 < 1){
+						alert(' please enter a value between 1 or 10')
+						}
+					if(val1 == rand1 || val1 == rand2 || val1 == rand3){
+						if (val2 == rand1 || val2 == rand2 || val2 == rand3){
+							if (val3 == rand1 || val3 == rand2 || val3 == rand3){
+								result = 'congrats, all 3 guesses were right! You win $200';
+							}
+							else {
+								result = '2 right guesses, You win $100';
+							}
+						}
+						else {
+							result = '1 right guess, You win $50';
+						}
+					}
+					else {
+						result = 'No Winnings, sorry!';
+					}
+					summary.innerHTML = result;
+				}
+				function getRandomIntInclusive(min, max) {
+					min = Math.ceil(min);
+					max = Math.floor(max);
+					return Math.floor(Math.random() * (max - min + 1) + min);
+				}
+			</script>
+		</body>
+	</html>

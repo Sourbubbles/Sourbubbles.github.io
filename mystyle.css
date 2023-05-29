@@ -1,0 +1,15 @@
+* {
+	background-color: aquamarine;
+}
+p {
+	background-color: yellow;
+	color: red;
+}
+::first-letter{
+	color: red;
+	font-size: 200%;
+}
+::first-line{
+	color: blue;
+}
+
